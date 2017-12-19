@@ -1,0 +1,29 @@
+{
+  "name": "myapp",
+  "version": "1.0.2",
+  "description": "Simple app using React-Redux and Youtube API",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build",
+    "build": "webpack-dev-server --content-base src/ --inline --hot --port 4000"
+  },
+  "author": "Lipton D. Abillar",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "es6": "0.0.7",
+    "react": "^16.2.0",
+    "react-devtools": "^3.0.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7",
+    "youtube-api-search-v2": "1.0.0",
+    "youtube-api-playlist": "1.0.0"
+  }
+}

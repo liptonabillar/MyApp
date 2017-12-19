@@ -1,2 +1,5 @@
-# MyApp
-Simple app using react-redux and youtube api
+# MyAppFinal
+
+to run
+npm install
+npm start
