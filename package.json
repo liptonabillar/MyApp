@@ -20,7 +20,7 @@
     "redux": "^3.7.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7",
-    "youtube-api-search-v2": "1.0.0",
-    "youtube-api-playlist": "1.0.0"
+    "youtube-api-playlist": "1.0.0",
+    "youtube-api-search-v2": "1.0.0"
   }
 }
