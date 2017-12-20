@@ -14,36 +14,30 @@ class NavigationBar extends React.Component
     };
   }
 
-  bannerClicked(){
-    this.setState(
-      {
-        home : "active",
-        playlist : ""
-      }
-    );
-    this.props.onBannerClicked();
-    this.props.selectedHeader(0);
-  }
+  onClickHeader(event){
+    switch(event.target.id){
+      case "playlist":
+        this.setState(
+          {
+            home : "",
+            playlist : "active"
+          }
+        );
+        this.props.selectedHeader(1);
+        break;
 
-  homeClicked(){
-    this.setState(
-      {
-        home : "active",
-        playlist : ""
-      }
-    );
-
-    this.props.selectedHeader(0); ///send header selected to index.js
-  }
-
-  playlistClicked(event){
-    this.setState(
-      {
-        home : "",
-        playlist : "active"
-      }
-    );
-    this.props.selectedHeader(1); ///send header selected to index.js
+      case "banner":
+        this.props.onBannerClicked();
+      case "home":
+        this.setState(
+          {
+            home : "active",
+            playlist : ""
+          }
+        );
+        this.props.selectedHeader(0);
+        break;
+    }
   }
 
   onSearchVideo(event){
@@ -84,17 +78,17 @@ class NavigationBar extends React.Component
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href={"#"} onClick= {this.bannerClicked.bind(this)}>my.app</a>
+            <a className="navbar-brand" href={"#"} id="banner" onClick= {this.onClickHeader.bind(this)}>my.app</a>
           </div>
 
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav">
 
-              <li className={this.state.home} onClick= {this.homeClicked.bind(this)}>
-                  <a href="#"><span className="glyphicon glyphicon-home"/> Home</a>
+              <li className={this.state.home} onClick= {this.onClickHeader.bind(this)}>
+                  <a href="#" id="home" ><span className="glyphicon glyphicon-home"/> Home</a>
               </li>
-              <li className={this.state.playlist} onClick= {this.playlistClicked.bind(this)}>
-                  <a href="#"><span className="glyphicon glyphicon-list"/> Playlist</a>
+              <li className={this.state.playlist} onClick= {this.onClickHeader.bind(this)}>
+                  <a href="#" id="playlist" ><span className="glyphicon glyphicon-list"/> Playlist</a>
               </li>
 
               <form className="navbar-form navbar-left">
