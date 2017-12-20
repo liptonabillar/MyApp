@@ -40,7 +40,7 @@ const VideoDetails = ({video}) => {
         <button type="button"
                 className="btn btn-info btn-xs center-block"
                 data-toggle="collapse"
-                data-target="#collapse"> Details </button>
+                data-target="#collapse">Details</button>
         </div>
       </div>
 
