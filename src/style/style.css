@@ -109,3 +109,7 @@ body {
   background-image: url("http://www.sauerworld.org/wp-content/uploads/2014/11/grey3.jpg");
   background-repeat: : repeat;
 }
+
+.center-block {
+  text-align: center;
+}
