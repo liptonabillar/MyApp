@@ -11,7 +11,6 @@ class NavigationBar extends React.Component
     this.state = {
       home : "active",
       playlist : "",
-      term: ''
     };
   }
 
@@ -53,7 +52,7 @@ class NavigationBar extends React.Component
       searchYouTube(
         {
           key: this.props.AppReducer.api,
-          term: this.state.term,
+          term: event.target.value,
           maxResults: 50,
           type: 'video'
         }, videos => {
@@ -63,20 +62,13 @@ class NavigationBar extends React.Component
     }
   }
 
-  ///this event will save any changes with the input into the state
-  onInputChange(newterm){
-    this.setState({
-        term: newterm
-    });
-  }
-
   render(){
     if(this.props.AppReducer.videos.length < 1)
     {
       searchYouTube(
         {
           key: this.props.AppReducer.api,
-          term: this.state.term,
+          term: "",
           maxResults: 50,
           type: 'video'
         }, videos => {
@@ -109,7 +101,6 @@ class NavigationBar extends React.Component
               <form className="navbar-form navbar-left">
                 <div className="form-group has-feedback">
                   <input onKeyPress={event => this.onSearchVideo(event)} //this is to know if user press enter
-                         onChange = {event => this.onInputChange(event.target.value)} //every changes with the input will automatic save it to state
                          type="text"
                          className="form-control"
                          placeholder="Search some videos"/>
