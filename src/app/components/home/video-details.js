@@ -1,7 +1,9 @@
 import React from 'react';
 
-const VideoDetails = ({video}) => {
+const months = ["January", "February", "March", "April", "May", "June", "July",
+                "August", "September", "October", "November", "December"];
 
+const VideoDetails = ({video}) => {
   if(!video){
     return(<div/>);
   }
@@ -11,6 +13,8 @@ const VideoDetails = ({video}) => {
   const channelTitle = video.snippet.channelTitle;
   const description = video.snippet.description;
   const title = video.snippet.title;
+  const date = new Date(video.snippet.publishedAt);
+  const dateParsed = months[date.getMonth()] + " " + date.getDate() + ", " +date.getFullYear();
 
   const video_url = `https://www.youtube.com/embed/${videoId}`;
   const channel_url = `https://www.youtube.com/channel/${channelId}`;
@@ -22,12 +26,21 @@ const VideoDetails = ({video}) => {
       </div>
 
       <div className="panel panel-default">
-        <div className="panel-body">
+        <div className="panel-heading">
           <a href={channel_url}>{channelTitle}</a>
           <h4>{title}</h4>
         </div>
-        <div className="panel-footer">
-          <h5>{description}</h5>
+        <div id="collapse" className="panel-collapse collapse">
+          <div className="panel-body">
+            <h5>Published on {dateParsed}</h5>
+            <p>{description}</p>
+          </div>
+        </div>
+        <div className ="panel-footer">
+        <button type="button"
+                className="btn btn-info btn-xs center-block"
+                data-toggle="collapse"
+                data-target="#collapse"> Details </button>
         </div>
       </div>
 
