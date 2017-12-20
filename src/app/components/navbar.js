@@ -10,7 +10,7 @@ class NavigationBar extends React.Component
     super();
     this.state = {
       home : "active",
-      playlist : "",
+      playlist : ""
     };
   }
 
@@ -36,14 +36,13 @@ class NavigationBar extends React.Component
     this.props.selectedHeader(0); ///send header selected to index.js
   }
 
-  playlistClicked(){
+  playlistClicked(event){
     this.setState(
       {
         home : "",
         playlist : "active"
       }
     );
-
     this.props.selectedHeader(1); ///send header selected to index.js
   }
 
@@ -85,22 +84,22 @@ class NavigationBar extends React.Component
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href={"#"} onClick= {() => this.bannerClicked()}>my.app</a>
+            <a className="navbar-brand" href={"#"} onClick= {this.bannerClicked.bind(this)}>my.app</a>
           </div>
 
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav">
 
-              <li className={this.state.home} onClick= {() => this.homeClicked()}>
+              <li className={this.state.home} onClick= {this.homeClicked.bind(this)}>
                   <a href="#"><span className="glyphicon glyphicon-home"/> Home</a>
               </li>
-              <li className={this.state.playlist} onClick= {() => this.playlistClicked()}>
+              <li className={this.state.playlist} onClick= {this.playlistClicked.bind(this)}>
                   <a href="#"><span className="glyphicon glyphicon-list"/> Playlist</a>
               </li>
 
               <form className="navbar-form navbar-left">
                 <div className="form-group has-feedback">
-                  <input onKeyPress={event => this.onSearchVideo(event)} //this is to know if user press enter
+                  <input onKeyPress={this.onSearchVideo.bind(this)} //this is to know if user press enter
                          type="text"
                          className="form-control"
                          placeholder="Search some videos"/>
