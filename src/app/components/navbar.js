@@ -52,7 +52,6 @@ class NavigationBar extends React.Component
         }, videos => {
           this.props.videos(videos);///WILL TRIGGER AN ACTION THAT WILL SAVE THE VIDEOS INTO THE STORE
       });
-
     }
   }
 
@@ -123,7 +122,7 @@ const mapDispatchToProps = (dispatch) => {
     videos: (item) =>{
       dispatch(videos(item));
     },
-
+    
     onBannerClicked: (item) =>{
       dispatch(onBannerClicked(item));
     }
