@@ -2,7 +2,14 @@ import React from "react";
 import searchYouTube from 'youtube-api-search-v2';
 
 import {connect} from 'react-redux';
-import mapDispatchToProps from '../../actions/app-actions';
+
+import {playlistsResults} from '../../actions/app-actions';
+import {playlists} from '../../actions/app-actions';
+import {onClearSelectedPlaylistsResults} from '../../actions/app-actions';
+import {onClearPlaylists} from '../../actions/app-actions';
+import {onSelectPlaylistsResults} from '../../actions/app-actions';
+import {onRemoveSelectedPlaylistsResults} from '../../actions/app-actions';
+import {onClearPlaylistsResults} from '../../actions/app-actions';
 
 import PlaylistsResults from '../list';
 import SelectedPlaylistsResults from '../list';
@@ -10,9 +17,6 @@ import SelectedPlaylistsResults from '../list';
 class PlaylistModal extends React.Component{
   constructor(){
       super();
-      this.state = {
-          term: '',
-      };
   }
 
   onSearchVideo(event){
@@ -20,19 +24,13 @@ class PlaylistModal extends React.Component{
       searchYouTube(
         {
           key: this.props.AppReducer.api,
-          term: this.state.term,
+          term: event.target.value,
           maxResults: 25,
           type: 'playlist'
         }, playlists => {
           this.props.playlistsResults(playlists)///RESULTS WILL BE SAVE TO THE STORE
       });
     }
-  }
-
-  onInputChange(newterm){
-    this.setState({
-        term: newterm
-    });
   }
 
   onImport(){
@@ -69,8 +67,7 @@ class PlaylistModal extends React.Component{
                 <input type="text"
                        className="form-control"
                        placeholder="Search Playlist"
-                       onKeyPress={event => this.onSearchVideo(event)} //this is to know if user press enter
-                       onChange = {event => this.onInputChange(event.target.value)} />
+                       onKeyPress={event => this.onSearchVideo(event)} />
 
                 <p/>
 
@@ -117,6 +114,38 @@ const mapStateToProps = (state) => {
     return {
         AppReducer: state.AppReducer
     };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    playlistsResults: (item) =>{
+      dispatch(playlistsResults(item));
+    },
+
+    playlists: (item) =>{
+      dispatch(playlists(item));
+    },
+
+    onClearSelectedPlaylistsResults: (item) =>{
+      dispatch(onClearSelectedPlaylistsResults(item));
+    },
+
+    onClearPlaylists: (item) =>{
+      dispatch(onClearPlaylists(item));
+    },
+
+    onSelectPlaylistsResults: (item) =>{
+      dispatch(onSelectPlaylistsResults(item));
+    },
+
+    onRemoveSelectedPlaylistsResults: (item) =>{
+      dispatch(onRemoveSelectedPlaylistsResults(item));
+    },
+
+    onClearPlaylistsResults: (item) =>{
+      dispatch(onClearPlaylistsResults(item));
+    }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistModal);

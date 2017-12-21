@@ -1,80 +1,76 @@
-const mapDispatchToProps = (dispatch) => {
+export function videos(item){
   return {
-    videos: (results) => {
-      dispatch({
-        type: "VIDEOS",
-        payload: results
-      });
-    },
-
-    playlists: (results) => {
-      dispatch({
-        type: "PLAYLISTS",
-        payload: results
-      });
-    },
-
-    playlistsResults: (results) => {
-      dispatch({
-        type: "PLAYLISTS_RESULTS",
-        payload: results
-      });
-    },
-
-    onSelectVideo: (results) => {
-      dispatch({
-        type: "SELECTED_VIDEO",
-        payload: results
-      });
-    },
-
-    onSelectPlaylist: (results) => {
-      dispatch({
-        type: "SELECTED_PLAYLIST",
-        payload: results
-      });
-    },
-
-    onSelectPlaylistsResults: (results) => {
-      dispatch({
-        type: "SELECTED_PLAYLISTS_RESULTS",
-        payload: results
-      });
-    },
-
-
-    onRemoveSelectedPlaylistsResults: (results) => {
-      dispatch({
-        type: "REMOVE_SELECTED_PLAYLISTS_RESULTS",
-        payload: results
-      });
-    },
-
-    onClearPlaylists: (results) => {
-      dispatch({
-        type: "CLEAR_PLAYLISTS",
-      });
-    },
-
-    onClearPlaylistsResults: (results) => {
-      dispatch({
-        type: "CLEAR_PLAYLISTS_RESULTS",
-      });
-    },
-
-    onClearSelectedPlaylistsResults: (results) => {
-      dispatch({
-        type: "CLEAR_SELECTED_PLAYLISTS_RESULTS",
-      });
-    },
-
-    onBannerClicked: (results) => {
-      dispatch({
-        type: "CLEAR_SELECTED_VIDEO",
-      });
-    }
-
+    type: "VIDEOS",
+    payload: item
   };
-};
+}
 
-export default mapDispatchToProps;
+export function playlists(item){
+  return {
+    type: "PLAYLISTS",
+    payload: item
+  };
+}
+
+export function playlistsResults(item){
+  return {
+    type: "PLAYLISTS_RESULTS",
+    payload: item
+  };
+}
+
+export function onSelectVideo(item){
+  return {
+    type: "SELECTED_VIDEO",
+    payload: item
+  };
+}
+
+export function onSelectPlaylist(item){
+  return {
+    type: "SELECTED_PLAYLIST",
+    payload: item
+  };
+}
+
+export function onSelectPlaylistsResults(item){
+  return {
+    type: "SELECTED_PLAYLISTS_RESULTS",
+    payload: item
+  };
+}
+
+export function onRemoveSelectedPlaylistsResults(item){
+  return {
+    type: "REMOVE_SELECTED_PLAYLISTS_RESULTS",
+    payload: item
+  };
+}
+
+export function onClearPlaylistsResults(item){
+  return {
+    type: "CLEAR_PLAYLISTS_RESULTS",
+    payload: item
+  };
+}
+
+export function onClearSelectedPlaylistsResults(item){
+  return {
+    type: "CLEAR_SELECTED_PLAYLISTS_RESULTS",
+    payload: item
+  };
+}
+
+export function onBannerClicked(item){
+  return {
+    type: "CLEAR_SELECTED_VIDEO",
+    payload: item
+  };
+}
+
+export function onClearPlaylists(item){
+  return {
+    type: "CLEAR_PLAYLISTS",
+    payload: item
+  };
+}

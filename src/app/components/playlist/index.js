@@ -1,5 +1,5 @@
 import React from 'react';
-import mapDispatchToProps from '../../actions/app-actions';
+import {onSelectPlaylist} from '../../actions/app-actions';
 import {connect} from 'react-redux';
 
 import PlaylistModal from './playlist-modal';
@@ -23,6 +23,14 @@ const mapStateToProps = (state) => {
     return {
         AppReducer: state.AppReducer
     };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSelectPlaylist: (item) =>{
+      dispatch(onSelectPlaylist(item));
+    }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Playlist);

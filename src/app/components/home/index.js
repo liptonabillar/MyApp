@@ -1,5 +1,5 @@
 import React from 'react';
-import mapDispatchToProps from '../../actions/app-actions';
+import {onSelectVideo} from '../../actions/app-actions';
 import {connect} from 'react-redux';
 
 import VideoDetails from './video-details';
@@ -23,6 +23,14 @@ const mapStateToProps = (state) => {
     return {
         AppReducer: state.AppReducer
     };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSelectVideo: (item) =>{
+      dispatch(onSelectVideo(item));
+    }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

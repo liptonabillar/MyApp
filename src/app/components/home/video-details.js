@@ -1,19 +1,20 @@
 import React from 'react';
 
-const months = ["January", "February", "March", "April", "May", "June", "July",
-                "August", "September", "October", "November", "December"];
-
-const VideoDetails = ({video}) => {
-  if(!video){
+const VideoDetails = props => {
+  if(!props.video){
     return(<div/>);
   }
 
-  const videoId = video.kind == "youtube#playlistItem"? video.snippet.resourceId.videoId : video.id.videoId;
-  const channelId = video.snippet.channelId;
-  const channelTitle = video.snippet.channelTitle;
-  const description = video.snippet.description;
-  const title = video.snippet.title;
-  const date = new Date(video.snippet.publishedAt);
+  const months = ["January", "February", "March", "April", "May", "June", "July",
+                  "August", "September", "October", "November", "December"];
+
+
+  const videoId = props.video.kind == "youtube#playlistItem"? props.video.snippet.resourceId.videoId : props.video.id.videoId;
+  const channelId = props.video.snippet.channelId;
+  const channelTitle = props.video.snippet.channelTitle;
+  const description = props.video.snippet.description;
+  const title = props.video.snippet.title;
+  const date = new Date(props.video.snippet.publishedAt);
   const dateParsed = months[date.getMonth()] + " " + date.getDate() + ", " +date.getFullYear();
 
   const video_url = `https://www.youtube.com/embed/${videoId}`;
