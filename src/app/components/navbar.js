@@ -2,8 +2,7 @@ import React from "react";
 import searchYouTube from 'youtube-api-search-v2';
 
 import {connect} from 'react-redux';
-import {videos} from '../actions/app-actions';
-import {onBannerClicked} from '../actions/app-actions';
+import {videos, onBannerClicked} from '../actions/app-actions';
 
 class NavigationBar extends React.Component
 {
@@ -122,7 +121,7 @@ const mapDispatchToProps = (dispatch) => {
     videos: (item) =>{
       dispatch(videos(item));
     },
-    
+
     onBannerClicked: (item) =>{
       dispatch(onBannerClicked(item));
     }

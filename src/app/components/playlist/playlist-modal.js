@@ -3,13 +3,8 @@ import searchYouTube from 'youtube-api-search-v2';
 
 import {connect} from 'react-redux';
 
-import {playlistsResults} from '../../actions/app-actions';
-import {playlists} from '../../actions/app-actions';
-import {onClearSelectedPlaylistsResults} from '../../actions/app-actions';
-import {onClearPlaylists} from '../../actions/app-actions';
-import {onSelectPlaylistsResults} from '../../actions/app-actions';
-import {onRemoveSelectedPlaylistsResults} from '../../actions/app-actions';
-import {onClearPlaylistsResults} from '../../actions/app-actions';
+import {playlistsResults,playlists,onClearSelectedPlaylistsResults,onClearPlaylistsResults} from '../../actions/app-actions';
+import {onClearPlaylists,onSelectPlaylistsResults,onRemoveSelectedPlaylistsResults} from '../../actions/app-actions';
 
 import PlaylistsResults from '../list';
 import SelectedPlaylistsResults from '../list';
